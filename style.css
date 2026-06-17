@@ -73,7 +73,7 @@ button:hover {
 
 .card,
 .project-card {
-  background: white;
+  background: rgb(253, 255, 194);
   padding: 25px;
   width: 220px;
   border-radius: 10px;
@@ -98,17 +98,43 @@ button:hover {
   color: white;
 }
 
+.dark h1 {
+  color: lightblue;
+}
+
 .dark .hero {
   background-color: #333;
 }
 
+.dark button {
+  background-color: rgb(230, 100, 0);
+  color: black;
+}
+
+.dark button:hover {
+  background: orange;
+}
+
 .dark .card,
 .dark .project-card {
-  background-color: #222;
+  background-color: #14003e;
   color: white;
 }
 
 .dark .project-card a,
 .dark a {
   color: orange;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover; /* Prevents image distortion */
+    margin: 20px;
+}
+
+/* Circular image */
+.profile-circle {
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
