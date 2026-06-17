@@ -17,14 +17,6 @@ themeButton.addEventListener("click", function () {
   }
 });
 
-const changeText = document.getElementById("changeText")
-changeText.addEventListener("click", function() {
-
-    if(changeText.textContent="Change Text"){
-        changeText.textContent = "Text has changed!";
-    }
-
-});
 
 let count = 0;
 const counter = document.getElementById("counter")
