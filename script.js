@@ -28,5 +28,3 @@ counter.textContent = count;
 
 });
 
-
-
