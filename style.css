@@ -162,6 +162,11 @@ img {
   color: rgb(0, 70, 98);
 }
 
+.dark #rotating-text1,
+.dark #rotating-text2 {
+  color: rgb(0, 150, 255);
+}
+
 #rotating-text1.fade-out, 
 #rotating-text2.fade-out {
   opacity: 0;
