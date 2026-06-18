@@ -154,3 +154,15 @@ img {
     border-radius: 50%;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
+
+#rotating-text1, 
+#rotating-text2 {
+  opacity: 1;
+  transition: opacity 0.6s ease;
+  color: rgb(0, 70, 98);
+}
+
+#rotating-text1.fade-out, 
+#rotating-text2.fade-out {
+  opacity: 0;
+}

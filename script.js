@@ -27,3 +27,27 @@ count++;
 counter.textContent = count;
 
 });
+
+
+const quotes = ["'Life is roblox'", "'Another one'", "'what?'", "'ay'"];
+const quoteAuthors = ["-DJ Khalid", "-DJ Khalid", "-DJ Khalid", "-Bad Bunny"];
+const text1 = document.getElementById("rotating-text1");
+const text2 = document.getElementById("rotating-text2");
+
+let index = 0;
+
+function showNextWord() {
+  text1.classList.add("fade-out");
+  text2.classList.add("fade-out");
+
+  setTimeout(() => {
+    text1.textContent = quotes[index];
+    text1.classList.remove("fade-out");
+    text2.textContent = quoteAuthors[index];
+    text2.classList.remove("fade-out");
+    index = (index + 1) % quotes.length;
+  }, 600);
+}
+
+showNextWord();
+setInterval(showNextWord, 5000);
