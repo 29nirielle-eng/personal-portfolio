@@ -51,3 +51,13 @@ function showNextWord() {
 
 showNextWord();
 setInterval(showNextWord, 5000);
+
+
+const downloadButton = document.getElementById("downloadButton");
+
+downloadButton.addEventListener("click", function () {
+  const link = document.createElement("a");
+  link.href = "resume.txt";
+  link.download = "resume.txt";
+  link.click();
+});
