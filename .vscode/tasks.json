@@ -6,7 +6,10 @@
 			"type": "shell",
 			"command": "node /home/nicole-i/myyy-first-webpage/.vscode/start-preview-server.cjs",
 			"isBackground": true,
-			"problemMatcher": []
+			"problemMatcher": [],
+			"runOptions": {
+				"runOn": "folderOpen"
+			}
 		}
 	]
 }
