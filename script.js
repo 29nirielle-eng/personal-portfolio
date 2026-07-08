@@ -9,7 +9,6 @@ const loadProjectButton = document.getElementById("loadProjectButton");
 
 if (loadProjectButton) {
   loadProjectButton.addEventListener("click", function () {
-    message.textContent = "Launching International Sports Explorer...";
 
     try {
       window.location.href = "command:workbench.action.tasks.runTask?%22Start%20International%20Sports%20Explorer%22";
