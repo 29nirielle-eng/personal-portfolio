@@ -5,6 +5,24 @@ helloButton.addEventListener("click", function () {
   message.textContent = "Hello! Welcome to my portfolio page.";
 });
 
+const loadProjectButton = document.getElementById("loadProjectButton");
+
+if (loadProjectButton) {
+  loadProjectButton.addEventListener("click", function () {
+    message.textContent = "Launching International Sports Explorer...";
+
+    try {
+      window.location.href = "command:workbench.action.tasks.runTask?%22Start%20International%20Sports%20Explorer%22";
+    } catch (error) {
+      console.error("Unable to launch task directly:", error);
+    }
+
+    setTimeout(function () {
+      window.open("http://localhost:5173/", "_blank", "noopener,noreferrer");
+    }, 1000);
+  });
+}
+
 const themeButton = document.getElementById("themeButton");
 
 themeButton.addEventListener("click", function () {
