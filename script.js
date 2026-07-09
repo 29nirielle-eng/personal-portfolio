@@ -7,20 +7,39 @@ helloButton.addEventListener("click", function () {
 
 const loadProjectButton = document.getElementById("loadProjectButton");
 
-if (loadProjectButton) {
-  loadProjectButton.addEventListener("click", function () {
+loadProjectButton.addEventListener("click", function () {
+  loadProjectButton.textContent = "Loading Project...";
+  const projectUrl = "http://localhost:5173";
+  const taskCommandUrl = "command:workbench.action.tasks.runTask?%5B%22Start%20International%20Sports%20Explorer%22%5D";
 
+  if (window.location.protocol === "vscode-webview:" || window.location.protocol === "vscode-file:") {
     try {
-      window.location.href = "command:workbench.action.tasks.runTask?%22Start%20International%20Sports%20Explorer%22";
+      window.location.href = taskCommandUrl;
     } catch (error) {
-      console.error("Unable to launch task directly:", error);
+      console.warn("Unable to launch the VS Code task automatically.", error);
     }
+  }
 
-    setTimeout(function () {
-      window.open("http://localhost:5173/", "_blank", "noopener,noreferrer");
-    }, 1000);
-  });
-}
+  let attempts = 0;
+  const maxAttempts = 45;
+
+  function tryOpenProject() {
+    fetch(projectUrl, { method: "HEAD" })
+      .then(() => {
+        window.location.href = projectUrl;
+      })
+      .catch(() => {
+        attempts += 1;
+        if (attempts < maxAttempts) {
+          setTimeout(tryOpenProject, 1000);
+        } else {
+          loadProjectButton.textContent = "Unable to load";
+        }
+      });
+  }
+
+  setTimeout(tryOpenProject, 1000);
+});
 
 const themeButton = document.getElementById("themeButton");
 
