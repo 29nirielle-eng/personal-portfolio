@@ -9,25 +9,16 @@ const loadProjectButton = document.getElementById("loadProjectButton");
 
 loadProjectButton.addEventListener("click", function () {
   loadProjectButton.textContent = "Loading Project...";
-  const projectUrl = "http://localhost:5173";
-  const taskCommandUrl = "command:workbench.action.tasks.runTask?%5B%22Start%20International%20Sports%20Explorer%22%5D";
-
-  if (window.location.protocol === "vscode-webview:" || window.location.protocol === "vscode-file:") {
-    try {
-      window.location.href = taskCommandUrl;
-    } catch (error) {
-      console.warn("Unable to launch the VS Code task automatically.", error);
-    }
-  }
+  const projectUrl = "http://127.0.0.1:5173";
 
   setTimeout(() => {
     try {
-      window.open(projectUrl, "_blank", "noopener,noreferrer");
+      window.location.assign(projectUrl);
     } catch (error) {
       console.warn("Unable to open the project automatically.", error);
       loadProjectButton.textContent = "Open project manually";
     }
-  }, 2000);
+  }, 1500);
 });
 
 const themeButton = document.getElementById("themeButton");
