@@ -20,25 +20,14 @@ loadProjectButton.addEventListener("click", function () {
     }
   }
 
-  let attempts = 0;
-  const maxAttempts = 45;
-
-  function tryOpenProject() {
-    fetch(projectUrl, { method: "HEAD" })
-      .then(() => {
-        window.location.href = projectUrl;
-      })
-      .catch(() => {
-        attempts += 1;
-        if (attempts < maxAttempts) {
-          setTimeout(tryOpenProject, 1000);
-        } else {
-          loadProjectButton.textContent = "Unable to load";
-        }
-      });
-  }
-
-  setTimeout(tryOpenProject, 1000);
+  setTimeout(() => {
+    try {
+      window.open(projectUrl, "_blank", "noopener,noreferrer");
+    } catch (error) {
+      console.warn("Unable to open the project automatically.", error);
+      loadProjectButton.textContent = "Open project manually";
+    }
+  }, 2000);
 });
 
 const themeButton = document.getElementById("themeButton");
