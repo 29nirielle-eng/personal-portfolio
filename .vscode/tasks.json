@@ -4,7 +4,7 @@
 		{
 			"label": "Start International Sports Explorer",
 			"type": "shell",
-			"command": "cd /home/nicole-i/International-Sports-Explorer && npm install && npm run dev -- --host 0.0.0.0 --port 5173 && sleep 3 && cat /tmp/international-sports-explorer.log && curl -I http://localhost:5173",
+			"command": "node server.js && cd /home/nicole-i/International-Sports-Explorer && npm install && npm run dev -- --host 0.0.0.0 --port 5173 && sleep 3 && cat /tmp/international-sports-explorer.log && curl -I http://127.0.0.1:3001/run-task",
 			"isBackground": true,
 			"problemMatcher": []
 		}

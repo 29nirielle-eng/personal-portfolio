@@ -7,18 +7,31 @@ helloButton.addEventListener("click", function () {
 
 const loadProjectButton = document.getElementById("loadProjectButton");
 
-loadProjectButton.addEventListener("click", function () {
+loadProjectButton.addEventListener("click", async function () {
   loadProjectButton.textContent = "Loading Project...";
   const projectUrl = "http://127.0.0.1:5173";
 
-  setTimeout(() => {
-    try {
-      window.location.assign(projectUrl);
-    } catch (error) {
-      console.warn("Unable to open the project automatically.", error);
-      loadProjectButton.textContent = "Open project manually";
-    }
-  }, 1500);
+  try {
+    await fetch("http://127.0.0.1:3001/run-task", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    setTimeout(() => {
+      try {
+        window.open(projectUrl, "_blank", "noopener,noreferrer");
+        loadProjectButton.textContent = "Project Opened";
+      } catch (error) {
+        console.warn("Unable to open the project automatically.", error);
+        loadProjectButton.textContent = "Error occurred while loading project";
+      }
+    }, 500);
+  } catch (error) {
+    console.warn("Unable to start the project task automatically.", error);
+    loadProjectButton.textContent = "Error occurred while loading project";
+  }
 });
 
 const themeButton = document.getElementById("themeButton");
