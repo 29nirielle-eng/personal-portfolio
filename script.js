@@ -22,7 +22,7 @@ loadProjectButton.addEventListener("click", async function () {
     setTimeout(() => {
       try {
         window.open(projectUrl, "_blank", "noopener,noreferrer");
-        loadProjectButton.textContent = "Project Opened";
+        loadProjectButton.textContent = "Project Loaded";
       } catch (error) {
         console.warn("Unable to open the project automatically.", error);
         loadProjectButton.textContent = "Error occurred while loading project";
