@@ -9,8 +9,12 @@ h1 {
     color: navy;
 }
 
+h3 {
+    font-size: 22px;
+}
+
 p {
-    font-size: 18px;
+    font-size: 22px;
 }
 
 a {
